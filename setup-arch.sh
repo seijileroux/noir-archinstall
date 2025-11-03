@@ -22,7 +22,6 @@ packages_common_utils=(
   "cmake"
   "meson"
   "cpio"
-  "uv"
   "go"
   "luarocks"
   "nodejs"
@@ -83,13 +82,8 @@ packages_common_utils=(
   "ncdu"
   "dkms"
   "archlinux-xdg-menu"
-  "wallust"
-  "matugen-bin"
-  "python-pywalfox"
-  "adw-gtk-theme"
   "bibata-cursor-theme"
   "tela-circle-icon-theme-dracula"
-  "eww-git"
   "qt5ct-kde"
   "qt6ct-kde"
 )
@@ -117,7 +111,8 @@ packages_common_wayland=(
   "wlr-randr"
   "wlogout"
   "wl-clipboard"
-  "copyq"
+  "wl-clip-persist"
+  "cliphist"
   "rofi-wayland"
   "waybar"
   "mako"
@@ -162,12 +157,12 @@ packages_apps=(
   "neovim"
   "vim"
   "nano"
-  "vscodium-bin"
-  "vscodium-bin-marketplace"
+  "code"
   "mpd"
   "mpc"
   "mpv"
   "dolphin"
+  "nautilus"
   "yazi"
   "imagemagick"
   "qbittorrent"
@@ -188,13 +183,11 @@ packages_apps=(
 )
 
 packages_fonts=(
-  "maplemono-ttf"
+  "ttf-hack-nerd"
   "noto-fonts"
   "noto-fonts-cjk"
   "noto-fonts-emoji"
   "noto-fonts-extra"
-  "apple-fonts"
-  "ttf-ms-fonts"
   "otf-font-awesome"
 )
 
@@ -376,9 +369,6 @@ install_dotfiles() {
     sudo mkdir -p /root/.cache/wal
     sudo ln -s /home/$USER/.noir-dotfiles/.cache/wal/colors-wal.vim /root/.cache/wal/colors-wal.vim
 
-    # Setup pywalfox
-    sudo pywalfox install
-
     return 0
     ;;
   No)
@@ -413,10 +403,8 @@ while true; do
 done
 
 # Create user folders
-mkdir /home/$USER/{Code,Games,Media,Mounts,My}
+mkdir /home/$USER/{Code,Games,My}
 mkdir -p /home/$USER/.local/{bin,share/backgrounds,share/icons}
-sudo mkdir /opt/$USER
-sudo chown -R $USER:$USER /opt/$USER
 
 # Set global variables
 set_variables
