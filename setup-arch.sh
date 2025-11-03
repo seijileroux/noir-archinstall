@@ -510,3 +510,10 @@ sudo systemctl enable ollama
 
 # Install Noir Dotfiles
 until install_dotfiles; do :; done
+
+choice_reboot=$(gum choose "Yes" "No" --header "INSTALLATION IS COMPLETE. Would you like to reboot now?")
+case "$choice_reboot" in
+Yes)
+  sudo reboot
+  ;;
+esac
