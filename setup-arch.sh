@@ -90,6 +90,7 @@ packages_common_utils=(
   "qt6ct-kde"
   "xdg-desktop-portal-gtk"
   "xdg-desktop-portal-hyprland"
+  "ollama"
 )
 
 packages_common_x11=(
@@ -174,6 +175,7 @@ packages_apps=(
   "qbittorrent"
   "keepassxc"
   "foliate"
+  "mcomix"
   "okular"
   "libreoffice-fresh"
   "discord"
@@ -282,7 +284,7 @@ install_window_managers() {
 
 install_misc() {
   # Ollama
-  curl -fsSL https://ollama.com/install.sh | sh
+  # curl -fsSL https://ollama.com/install.sh | sh
 
   # Rofi Power Menu
   pipx install git+https://github.com/cjbassi/rofi-power
