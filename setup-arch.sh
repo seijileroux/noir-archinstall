@@ -26,6 +26,9 @@ packages_common_utils=(
   "luarocks"
   "nodejs"
   "npm"
+  "pnpm"
+  "deno"
+  "bun-bin"
   "uv"
   "podman"
   "pkgconf-pkg-config"
@@ -92,6 +95,7 @@ packages_common_utils=(
   "xdg-desktop-portal-gtk"
   "xdg-desktop-portal-hyprland"
   "ollama"
+  "ollama-cuda"
 )
 
 packages_common_x11=(
