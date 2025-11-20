@@ -419,7 +419,7 @@ while true; do
 done
 
 # Create user folders
-mkdir /home/$USER/{Code,Games,My}
+mkdir -p /home/$USER/Data/{Code,Media,My}
 mkdir -p /home/$USER/.local/{bin,share/backgrounds,share/icons}
 
 # Set global variables
