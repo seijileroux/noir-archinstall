@@ -293,6 +293,9 @@ install_misc() {
 
   # Rofi Power Menu
   pipx install git+https://github.com/cjbassi/rofi-power
+
+  # Denon CLI
+  deno install --global --allow-read --allow-run --allow-write -f --unstable https://deno.land/x/denon/denon.ts
 }
 
 install_microcode() {
