@@ -96,6 +96,9 @@ packages_common_utils=(
   "xdg-desktop-portal-hyprland"
   "ollama"
   "ollama-cuda"
+  "ghex"
+  "czkawka-gui-bin"
+  "gdu"
 )
 
 packages_common_x11=(
@@ -178,12 +181,16 @@ packages_apps=(
   "yazi"
   "imagemagick"
   "qbittorrent"
+  "nicotine+"
+  "amule"
   "keepassxc"
   "foliate"
   "mcomix"
   "okular"
   "libreoffice-fresh"
   "discord"
+  "franz-bin"
+  "halloy-bin"
   "filezilla"
   "filelight"
   "gnome-disk-utility"
@@ -296,6 +303,9 @@ install_misc() {
 
   # Denon CLI
   deno install --global --allow-read --allow-run --allow-write -f --unstable https://deno.land/x/denon/denon.ts
+
+  # SpotDL
+  pipx install spotdl
 }
 
 install_microcode() {
