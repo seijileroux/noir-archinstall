@@ -99,6 +99,8 @@ packages_common_utils=(
   "ghex"
   "czkawka-gui-bin"
   "gdu"
+  "tlp"
+  "thermald"
 )
 
 packages_common_x11=(
@@ -534,6 +536,9 @@ systemctl --user enable pipewire
 sudo systemctl enable bluetooth
 sudo systemctl enable podman
 sudo systemctl enable ollama
+## Thermal monitoring and overheat prevention
+sudo systemctl enable tlp
+sudo systemctl enable thermald
 
 # Install Noir Dotfiles
 until install_dotfiles; do :; done
