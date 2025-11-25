@@ -101,6 +101,8 @@ packages_common_utils=(
   "gdu"
   "tlp"
   "thermald"
+  "ffmpegthumbnailer"
+  "ffmpegthumbs"
 )
 
 packages_common_x11=(
