@@ -16,7 +16,7 @@ install_packages() {
     echo "----------------------------------------"
 
     # Check if package is already installed
-    if pacman -Q "$package" >/dev/null 2>&1; then
+    if paru -Q "$package" >/dev/null 2>&1; then
       echo "✓ Package $package is already installed"
       ((installed_count++))
       echo
@@ -24,7 +24,7 @@ install_packages() {
     fi
 
     # Try to install the package
-    if sudo pacman -S --noconfirm "$package"; then
+    if paru -S --noconfirm "$package"; then
       echo "✓ Successfully installed: $package"
       ((installed_count++))
     else
@@ -58,9 +58,7 @@ install_packages() {
 }
 
 packages_common_utils=(
-  "git"
-  "git-lfs"
-  "lazygit"
+  # System utils & networking
   "pacman-contrib"
   "curl"
   "wget"
@@ -68,8 +66,63 @@ packages_common_utils=(
   "unzip"
   "rsync"
   "glibc"
+  "pkgconf-pkg-config"
+  "brightnessctl"
+  "bluez"
+  "bluez-utils"
+  "iwd"
+  "wireless_tools"
+  "rofi-bluetooth-git"
+  "networkmanager-dmenu"
+  "openvpn"
+  "networkmanager-openvpn"
+  "rofi-power-menu"
+  "ly"
+  "ntfs-3g"
+  "acpi"
+  "libva-nvidia-driver"
+  "zstd"
+  "bind"
+  "man-db"
+  "man-pages"
+  "tealdeer"
+  "downgrade"
+  "reflector"
+  "pkgfile"
+  "gvfs"
+  "gvfs-mtp"
+  "gvfs-smb"
+  "dkms"
+  "archlinux-xdg-menu"
+  "gtk4"
+  "ark"
+  "ffmpegthumbnailer"
+  "ffmpegthumbs"
+
+  # Audio utils
+  "playerctl"
+  "pavucontrol"
+  "alsa-utils"
+  "pipewire"
+  "lib32-pipewire"
+  "pipewire-pulse"
+  "pipewire-alsa"
+  "pipewire-jack"
+  "pipewire-audio"
+  "libpulse"
+  "wireplumber"
+
+  # Power management
+  "tlp"
+  "thermald"
+
+  # Development
+  "git"
+  "git-lfs"
+  "lazygit"
   "cmake"
   "meson"
+  "ninja"
   "cpio"
   "go"
   "luarocks"
@@ -79,79 +132,39 @@ packages_common_utils=(
   "deno"
   "bun-bin"
   "uv"
-  "podman"
-  "pkgconf-pkg-config"
-  "stow"
-  "nwg-look"
-  "zsh"
-  "starship"
-  "fzf"
-  "zoxide"
-  "lsd"
-  "bat"
-  "bat-extras"
-  "cava"
-  "brightnessctl"
-  "playerctl"
-  "pavucontrol"
-  "alsa-utils"
-  "pipewire"
-  "lib32-pipewire"
-  "pipewire-pulse"
-  "pipewire-alsa"
-  "pipewire-audio"
-  "wireplumber"
-  "btop"
   "python-pip"
   "python-pipx"
   "python3-gobject"
-  "gtk4"
-  "fastfetch"
-  "bluez"
-  "bluez-utils"
-  "rofi-bluetooth-git"
-  "networkmanager-dmenu"
-  "openvpn"
-  "networkmanager-openvpn"
-  "rofi-power-menu"
-  "yt-dlp"
-  "ly"
-  "ntfs-3g"
-  "acpi"
-  "libva-nvidia-driver"
-  "zstd"
-  "mlocate"
-  "bind"
-  "man-db"
-  "man-pages"
-  "tealdeer"
-  "ark"
-  "downgrade"
-  "less"
-  "ripgrep"
-  "reflector"
-  "pkgfile"
-  "gvfs"
-  "gvfs-mtp"
-  "gvfs-smb"
-  "ncdu"
-  "dkms"
-  "archlinux-xdg-menu"
+
+  # Container management
+  "podman"
+
+  # Dotfiles & ricing
+  "stow"
+  "nwg-look"
   "bibata-cursor-theme"
   "tela-circle-icon-theme-dracula"
   "qt5ct-kde"
   "qt6ct-kde"
+
+  # Shell & terminal utils
+  "zsh"
+  "starship"
+  "fzf"
+  "zoxide"
+  "mlocate"
+  "less"
+  "ripgrep"
+  "lsd"
+  "bat"
+  "bat-extras"
+  "cava"
+  "btop"
+  "fastfetch"
+
+  # Portals
   "xdg-desktop-portal-gtk"
   "xdg-desktop-portal-hyprland"
-  "ollama"
-  "ollama-cuda"
-  "ghex"
-  "czkawka-gui-bin"
-  "gdu"
-  "tlp"
-  "thermald"
-  "ffmpegthumbnailer"
-  "ffmpegthumbs"
 )
 
 packages_common_x11=(
@@ -218,41 +231,74 @@ packages_i3=(
 )
 
 packages_apps=(
+  # Terminals
   "ghostty"
   "alacritty"
+
+  # Web browsers
   "firefox"
   "librewolf-bin"
+
+  # Text & hex editors
   "neovim"
   "vim"
   "nano"
   "code"
+  "ghex"
+
+  # Media players & radios
   "mpd"
   "mpc"
+  "rmpc"
   "mpv"
+  "shortwave"
+
+  # File managers
   "dolphin"
   "nautilus"
   "yazi"
-  "imagemagick"
-  "qbittorrent"
-  "nicotine+"
-  "amule"
+
+  # Password managers
   "keepassxc"
+
+  # Readers & image viewers
   "foliate"
   "mcomix"
   "okular"
   "libreoffice-fresh"
+  "obsidian"
+  "nomacs"
+
+  # Messengers
   "discord"
   "franz-bin"
   "halloy-bin"
-  "filezilla"
+
+  # Disk space visualizers
   "filelight"
+  "ncdu"
+  "gdu"
+
+  # File transfer
+  "filezilla"
+
+  # Disk management & ISO writers
   "gnome-disk-utility"
-  "nomacs"
-  "obsidian"
-  "rmpc"
-  "shortwave"
+  "gnome-multi-writer"
+
+  # AI
+  "ollama"
+  "ollama-cuda"
+
+  # Other
+  "imagemagick"
+  "qbittorrent"
+  "nicotine+"
+  "amule"
   "qalculate-gtk"
   "clock-rs-git"
+  "czkawka-gui-bin"
+  "yt-dlp"
 )
 
 packages_fonts=(
