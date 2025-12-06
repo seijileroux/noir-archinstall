@@ -2,10 +2,59 @@
 
 # Install required packages
 install_packages() {
-  paru -S --needed --noconfirm "$@"
-  # for pkg; do
-  #   paru -S --needed --noconfirm "${pkg}"
-  # done
+  local package_array=("$@")
+  local total_packages=${#package_array[@]}
+  local installed_count=0
+  local failed_count=0
+  local failed_packages=()
+
+  echo "Starting installation of $total_packages packages..."
+  echo "================================================"
+
+  for package in "${package_array[@]}"; do
+    echo "Installing package: $package"
+    echo "----------------------------------------"
+
+    # Check if package is already installed
+    if pacman -Q "$package" >/dev/null 2>&1; then
+      echo "✓ Package $package is already installed"
+      ((installed_count++))
+      echo
+      continue
+    fi
+
+    # Try to install the package
+    if sudo pacman -S --noconfirm "$package"; then
+      echo "✓ Successfully installed: $package"
+      ((installed_count++))
+    else
+      echo "✗ Failed to install: $package"
+      ((failed_count++))
+      failed_packages+=("$package")
+    fi
+
+    echo
+  done
+
+  # Summary
+  echo "================================================"
+  echo "Installation Summary:"
+  echo "Total packages: $total_packages"
+  echo "Successfully installed: $installed_count"
+  echo "Failed to install: $failed_count"
+
+  if [ $failed_count -gt 0 ]; then
+    echo "Failed packages:"
+    for failed_pkg in "${failed_packages[@]}"; do
+      echo "  - $failed_pkg"
+    done
+    echo
+    echo "You can try to install failed packages individually later."
+    return 1
+  else
+    echo "All packages installed successfully!"
+    return 0
+  fi
 }
 
 packages_common_utils=(
