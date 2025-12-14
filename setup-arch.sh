@@ -77,7 +77,7 @@ packages_common_utils=(
   "openvpn"
   "networkmanager-openvpn"
   "rofi-power-menu"
-  "ly"
+  "sddm"
   "ntfs-3g"
   "acpi"
   "libva-nvidia-driver"
@@ -630,6 +630,7 @@ tldr --update
 # Enable services
 echo "→ Enabling systemctl services..."
 systemctl --user enable pipewire
+sudo systemctl enable sddm
 sudo systemctl enable bluetooth
 sudo systemctl enable podman
 sudo systemctl enable ollama
