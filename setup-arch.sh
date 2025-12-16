@@ -146,6 +146,7 @@ packages_common_utils=(
   "tela-circle-icon-theme-dracula"
   "qt5ct-kde"
   "qt6ct-kde"
+  "quickshell"
 
   # Shell & terminal utils
   "zsh"
@@ -238,6 +239,7 @@ packages_apps=(
   # Web browsers
   "firefox"
   "librewolf-bin"
+  "vivaldi"
 
   # Text & hex editors
   "neovim"
@@ -281,6 +283,7 @@ packages_apps=(
 
   # File transfer
   "filezilla"
+  "syncthing"
 
   # Disk management & ISO writers
   "gnome-disk-utility"
@@ -630,6 +633,7 @@ tldr --update
 # Enable services
 echo "→ Enabling systemctl services..."
 systemctl --user enable pipewire
+systemctl --user enable syncthing
 sudo systemctl enable sddm
 sudo systemctl enable bluetooth
 sudo systemctl enable podman
