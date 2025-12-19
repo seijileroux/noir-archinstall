@@ -239,7 +239,7 @@ packages_apps=(
   # Web browsers
   "firefox"
   "librewolf-bin"
-  "vivaldi"
+  "brave-bin"
 
   # Text & hex editors
   "neovim"
