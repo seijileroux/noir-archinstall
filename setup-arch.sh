@@ -98,6 +98,7 @@ packages_common_utils=(
   "ark"
   "ffmpegthumbnailer"
   "ffmpegthumbs"
+  "sshpass"
 
   # Audio utils
   "playerctl"
