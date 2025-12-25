@@ -479,10 +479,10 @@ install_dotfiles() {
     cd ~ || exit
     case "$choice_wallpapers" in
     Yes)
-      git clone --depth 1 --recurse-submodules https://github.com/somanoir/.noir-dotfiles.git
+      git clone --depth 1 --recurse-submodules https://github.com/seijileroux/.noir-dotfiles.git
       ;;
     No)
-      git clone --depth 1 https://github.com/somanoir/.noir-dotfiles.git
+      git clone --depth 1 https://github.com/seijileroux/.noir-dotfiles.git
       ;;
     esac
     cd .noir-dotfiles || exit
