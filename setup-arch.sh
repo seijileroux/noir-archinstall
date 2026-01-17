@@ -144,6 +144,7 @@ packages_common_utils=(
   # Dotfiles & ricing
   "stow"
   "nwg-look"
+  "adw-gtk-theme"
   "bibata-cursor-theme"
   "tela-circle-icon-theme-dracula"
   "qt5ct-kde"
