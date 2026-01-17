@@ -74,6 +74,7 @@ packages_common_utils=(
   "wireless_tools"
   "rofi-bluetooth-git"
   "networkmanager-dmenu"
+  "network-manager-applet"
   "openvpn"
   "networkmanager-openvpn"
   "rofi-power-menu"
@@ -398,14 +399,8 @@ install_window_managers() {
 }
 
 install_misc() {
-  # Ollama
-  # curl -fsSL https://ollama.com/install.sh | sh
-
   # Rofi Power Menu
   pipx install git+https://github.com/cjbassi/rofi-power
-
-  # Denon CLI
-  deno install --global --allow-read --allow-run --allow-write -f --unstable https://deno.land/x/denon/denon.ts
 
   # SpotDL
   pipx install spotdl
@@ -468,7 +463,6 @@ setup_mpd() {
 
 install_flatpaks() {
   flatpak install flathub com.github.tchx84.Flatseal --assumeyes
-  flatpak install flathub com.github.vikdevelop.photopea_app --assumeyes
 }
 
 install_dotfiles() {
