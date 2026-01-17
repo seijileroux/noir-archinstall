@@ -119,6 +119,7 @@ packages_common_utils=(
   "thermald"
 
   # Development
+  "base-devel"
   "git"
   "git-lfs"
   "lazygit"
